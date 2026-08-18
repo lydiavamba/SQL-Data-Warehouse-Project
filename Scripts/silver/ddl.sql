@@ -23,15 +23,6 @@ FROM (
 ) t
 WHERE flag_last =1  --Select the most recent record per customer
 
--- to save
+-- Loading silver.crm_cust_info
 
--- check for null or duplicates in primary key and the rest
-SELECT prd_id, 
-COUNT(*) 
-FROM bronze.crm_prd_info 
-GROUP BY prd_id
-Having COUNT(*) >1 OR prd_id IS NULL
 
-SELECT * FROM bronze.crm_prd_info
-SELECT
-prd_id,prd_key,prd_nm,prd_cost,prd_line,prd_start_dt,prd_end_dt
